@@ -21,3 +21,18 @@ Toda classe deve implementar uma única funcionalidade ou serviço. Especificame
 - Acoplamento ruim
   - Quando a classe **A** realiza um acesso direto a um arquivo ou banco de dados da classe **B**.
   - Quando as classes **A** e **B** compartilham uma variável ou estrutura de dados global. Por exemplo, a classe **B** altera o valor de uma variável global que a classe **A** usa no seu código.
+
+## Aula 05/08
+
+### SOLID 
+**Single Responsability Principle**
+Toda classe deve ter uma única responsabilidade. Mais ainda, responsabilidade, no contexto do princípio, significa motivo para modificar uma classe. Ou seja, deve existir um único motivo para modificar qualquer classe em um sistema. Isso significa que a classe deve ser responsável por apenas uma única tarefa, deixando o código fácil de entender, manter e modificar.
+
+Open/Closed Principle
+
+Liskov Substitution Principle
+
+**Interface Segregation Principle**
+Define que interfaces têm que ser pequenas, coesas e, mais importante ainda, específicas para cada tipo de cliente. O objetivo é evitar que clientes dependam de interfaces com métodos que eles não vão usar. Para evitar isso, duas ou mais interfaces específicas podem, por exemplo, substituir uma interface de propósito geral.
+
+Dependency Inversion Principle

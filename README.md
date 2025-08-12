@@ -22,7 +22,7 @@ Toda classe deve implementar uma única funcionalidade ou serviço. Especificame
   - Quando a classe **A** realiza um acesso direto a um arquivo ou banco de dados da classe **B**.
   - Quando as classes **A** e **B** compartilham uma variável ou estrutura de dados global. Por exemplo, a classe **B** altera o valor de uma variável global que a classe **A** usa no seu código.
 
-## Aula 05/08 - 11/08
+## Aulas 05/08 - 11/08 - 12/08
 
 ### SOLID
 São regras de como implementar um código orientado objeto da melhor foma possível.
@@ -32,7 +32,8 @@ Toda classe deve ter uma única responsabilidade. Mais ainda, responsabilidade, 
 
 **Open/Closed Principle:** Uma classe deve estar fechada para modificações e aberta para extensões. Significa proteger a classe de possíveis bugs porém manter a classe hábil para novas implementações 
 
-Liskov Substitution Principle
+**Liskov Substitution Principle:**
+Objetos de uma sub-classe devem poder substituir objetos da sua super classe em qualquer parte do código onde sua super classe é experada.
 
 **Interface Segregation Principle:**
 Define que interfaces têm que ser pequenas, coesas e, mais importante ainda, específicas para cada tipo de cliente. O objetivo é evitar que clientes dependam de interfaces com métodos que eles não vão usar. Para evitar isso, duas ou mais interfaces específicas podem, por exemplo, substituir uma interface de propósito geral.
@@ -41,9 +42,11 @@ Define que interfaces têm que ser pequenas, coesas e, mais importante ainda, es
 Uma classe deve depender apenas de uma abstração e não de uma implementação completa, é evitar a comunicação direta de um classe com outra. Por exemplo uma classe _controller_ usa uma interface de _service_ na hora da injeção de dependência para não depender da classe concreta e sim da interface.
 
 ---
-**Prefira Composição a Herança:** É preferível a herança somente em casos onde os filhos de uma classe pai não podem exercer o mesmo papel. Como exemplo, Uma classe Cachorro e Gato que herdam de Animal, nunca um cachorro será um gato ou vice-versa
+**Prefira Composição a Herança:** 
+É preferível a herança somente em casos onde os filhos de uma classe pai não podem exercer o mesmo papel. Como exemplo, Uma classe Cachorro e Gato que herdam de Animal, nunca um cachorro será um gato ou vice-versa
 
-**Princípio de Demeter:** "Princípio do menor conhecimento" tenta evitar variáveis globais se limitando aos recursos locais ou recebidos via parâmetro. A implementação de um método deve invocar (opcionalmente) os seguintes outros métodos
+**Princípio de Demeter:**
+"Princípio do menor conhecimento" tenta evitar variáveis globais se limitando aos recursos locais ou recebidos via parâmetro. A implementação de um método deve invocar (opcionalmente) os seguintes outros métodos.
 - De sua própria classe _caso 1_
 - De objetos passados como parâmetros _caso 2_
 - De objetos criados pelo próprio método _caso 3_

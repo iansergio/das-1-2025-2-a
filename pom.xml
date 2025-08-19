@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.univille</groupId>
-    <artifactId>DAS-1-2025-2-A</artifactId>
+    <artifactId>das-1-2025-2-a</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
-    <name>Multi Project: DAS-1-2025-2-A</name>
+    <name>Multi Project: das-1-2025-2-a</name>
 
     <modules>
-        <module>solid</module>
+        <module>designpatterns</module>
     </modules>
 </project>

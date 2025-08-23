@@ -1,13 +1,12 @@
-// package br.univille.observer;
+package br.univille.observer;
 
-// import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
-// public class Publisher {
-//     private List<Subscriber> subscribers;
-//     private Boolean mainState;
+public class Publisher {
+    private List<Subscriber> subscribers = new ArrayList<>();
+    private String mainState;
 
-//     public void subscribe(Subscriber s) {
-        
-//     }
-
-// }
+    public Publisher() {
+    }
+}

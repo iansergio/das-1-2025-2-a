@@ -1,16 +1,29 @@
 package br.univille.singleton;
 
 public class Singleton {
-    // Um atributo estático é carregado na memória antes de todo o resto
+    //variavel global
     private static Singleton instance;
+    private String secret;
 
-    private Singleton(){}
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
+
+    private Singleton(){
+        System.out.println("Construtor do Singleton...");
+    }
 
     public static Singleton getInstance(){
-        if(instance == null) {
+        System.out.println("getInstance...");
+        
+        if(instance == null){
+            System.out.println("new Singleton...");
             instance = new Singleton();
         }
         return instance;
     }
-
 }

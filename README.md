@@ -1,7 +1,7 @@
 # das-1-2025-2-a
 Repositório destinado a disciplina de Design e Arquitetura de Software
 
-## Aula 04/08 
+## Aula 04/08/25
 
 ### Abstração
 Consiste em representar objetos da vida real em classes para diminuir a complexidade de problemas. Com a abstração, se destacam apenas os aspectos essenciais de um objeto, ignorando os detalhes desnecessários. Isso permite focar no que um objeto faz, e não como ele faz.
@@ -22,7 +22,7 @@ Toda classe deve implementar uma única funcionalidade ou serviço. Especificame
   - Quando a classe **A** realiza um acesso direto a um arquivo ou banco de dados da classe **B**.
   - Quando as classes **A** e **B** compartilham uma variável ou estrutura de dados global. Por exemplo, a classe **B** altera o valor de uma variável global que a classe **A** usa no seu código.
 
-## Aulas 05/08 - 11/08 - 12/08
+## Aulas 05/08/25 - 11/08/25 - 12/08/25
 
 ### SOLID
 São regras de como implementar um código orientado objeto da melhor foma possível.
@@ -51,3 +51,14 @@ Uma classe deve depender apenas de uma abstração e não de uma implementação
 - De objetos passados como parâmetros _caso 2_
 - De objetos criados pelo próprio método _caso 3_
 - De atributos da classe do método _caso 4_
+
+## Aula 26/08/25
+
+### Características de Arquitetura  
+As características definem os critérios para que um sistema seja considerado bem sucedido, mas geralmente não estão relacionadas diretamente às suas funcionalidades principais. As características são independentes da funcionalidade do sistema, e não exigem que se conheça o que o sistema faz exatamente. Porém são essenciais para o sistema funcionar corretamente.
+
+### Decisôes arquiteturais
+As decisões da arquitetura são regras que dizem como o sistema deve ser construído. Por exemplo, o arquiteto pode decidir que só algumas partes do sistema, como as camadas de negócio e serviços, pode acessar o banco de dados. Outras partes, como a camada de apresentação, não podem acessar o banco diretamente. Essas decisões criam limites para o sistema e ajudam as equipes a saber o que é permitido ou não
+
+### Princípios de Design
+Diferente de uma decisão fixa, um princípio de design funciona como uma orientação ou recomendação para ajudar na criação do sistema, mas não é uma regra que precisa ser seguida obrigatoriamente. Por exemplo, um princípio comum em arquiteturas de microsserviços é usar comunicação assíncrona entre os serviços, ou seja, os serviços enviam mensagens sem precisar esperar uma resposta imediata. Isso ajuda a melhorar o desempenho e a escalabilidade do sistema. Assim, os princípios do design guiam as equipes para construir sistemas mais eficientes, mas ainda deixam espaço para adaptação conforme a necessidade.

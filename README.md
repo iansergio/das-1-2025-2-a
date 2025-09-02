@@ -31,27 +31,17 @@ São regras/princípios de como implementar um código orientado objeto da melho
 #### S - Single Responsability Principle
 Toda classe deve ter uma única responsabilidade. Mais ainda, responsabilidade, no contexto do princípio, significa motivo para modificar uma classe. Ou seja, deve existir um único motivo para modificar qualquer classe em um sistema. Isso significa que a classe deve ser responsável por apenas uma única tarefa, deixando o código fácil de entender, manter e modificar.
 
----
-
 #### O - Open/Closed Principle  
 Uma classe deve estar fechada para modificações e aberta para extensões. Significa proteger a classe de possíveis bugs porém manter a classe hábil para novas implementações 
-
----
 
 #### L - Liskov Substitution Principle  
 Objetos de uma sub-classe devem poder substituir objetos da sua super classe em qualquer parte do código onde sua super classe é experada.
 
----
-
 #### I - Interface Segregation Principle  
 Define que interfaces têm que ser pequenas, coesas e, mais importante ainda, específicas para cada tipo de cliente. O objetivo é evitar que clientes dependam de interfaces com métodos que eles não vão usar. Para evitar isso, duas ou mais interfaces específicas podem, por exemplo, substituir uma interface de propósito geral.
 
----
-
 #### D - Dependency Inversion Principle   
 Uma classe deve depender apenas de uma abstração e não de uma implementação completa, é evitar a comunicação direta de um classe com outra. Por exemplo uma classe _controller_ usa uma interface de _service_ na hora da injeção de dependência para não depender da classe concreta e sim da interface.
-
----
 
 **Prefira Composição a Herança:** 
 É preferível a herança somente em casos onde os filhos de uma classe pai não podem exercer o mesmo papel. Como exemplo, Uma classe Cachorro e Gato que herdam de Animal, nunca um cachorro será um gato ou vice-versa
@@ -118,3 +108,11 @@ Participa de um processo cíclico de operações de:
 - Implantação
 - Monitamento
 - Feedback
+
+## 📅 Aula 02/09/25
+
+### Resuma a diferença entre: Arquitetura e Design
+Considerando que _profundidade técnica_ é o que alguém sabe e _amplitude técnica_ é o quanto alguém sabe. **Arquitetura** gira em torno mais da amplitude porque para um arquiteto, ao tomar decisões que combinam capacidades com restrições técnicas, é fundamental um grande conhecimento de soluções variadas. Assim um Arquiteto acaba por sacrificar uma especialização duramente conquistada, e ampliar o seu portifólio. Algumas áreas de especialização permanecerão, ja outras ficam desatualizadas ou até mesmo perdidas no processo. Em contrapartida, **Design** é sobre a profundidade do conhecimento técnico que uma pessoa possui para realizar o seu trabalho, focando em literalmente na parte prática focada.
+
+### Como é a formação do conhecimento de um arquiteto modelo T?
+A formação do conhecimento de um Arquiteto Modelo T é ocorre por uma combinação entre uma base ampla e diversificada (a parte horizontal do T) e uma profunda especialização em uma área específica.

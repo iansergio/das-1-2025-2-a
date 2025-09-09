@@ -118,3 +118,16 @@ Design é sobre a profundidade do conhecimento técnico que uma pessoa possui pa
 
 ### Como é a formação do conhecimento de um arquiteto modelo T?
 A formação do conhecimento de um Arquiteto Modelo T é ocorre por uma combinação entre uma base ampla e diversificada (a parte horizontal do T) e uma profunda especialização em uma área específica.
+
+## 📅 08/09/25
+
+### Trade offs
+Ao definir a arquitetura de um sistema, não é possível atender todos os requisitos ao mesmo tempo. É preciso fazer compromissos (trade-offs) entre atributos como desempenho, escalabilidade, segurança e manutenibilidade para alcançar um equilíbrio adequado ao contexto do projeto.
+
+### Padrão de tópicos
+Um publisher envia mensagens para um canal (stream ou broker), que distribui para múltiplos subscribers. Comunicação assíncrona, desacoplada e escalável.
+Publisher --> Stream/Broker <-- <-- Subscribers (Relação um para muitos)
+
+### Queue
+Um sender envia mensagens para uma fila, onde um receiver consome. Comunicação assíncrona, garante entrega e processamento único de cada mensagem.
+Sender --> Receiver (Relação um para um)

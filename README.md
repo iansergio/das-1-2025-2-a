@@ -134,6 +134,6 @@ Sender --> Receiver (Relação um para um)
 
 ## 📅 15/09/25
 
-### [Twelve Factor App](https://12factor.net/)
+### Twelve Factor App [Site](https://12factor.net/)
 A metodologia twelve-factor app define boas práticas para construir aplicações SaaS modernas, com foco em portabilidade, automação, agilidade, escalabilidade e facilidade de implantação na nuvem, independente da linguagem ou serviços utilizados.
 

@@ -131,3 +131,9 @@ Publisher --> Stream/Broker <-- <-- Subscribers (Relação um para muitos)
 ### Queue
 Um sender envia mensagens para uma fila, onde um receiver consome. Comunicação assíncrona, garante entrega e processamento único de cada mensagem.
 Sender --> Receiver (Relação um para um)
+
+## 📅 15/09/25
+
+### [Twelve Factor App](https://12factor.net/)
+A metodologia twelve-factor app define boas práticas para construir aplicações SaaS modernas, com foco em portabilidade, automação, agilidade, escalabilidade e facilidade de implantação na nuvem, independente da linguagem ou serviços utilizados.
+

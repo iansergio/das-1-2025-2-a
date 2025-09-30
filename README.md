@@ -1,6 +1,8 @@
 # das-1-2025-2-a
 Repositório destinado a disciplina de Design e Arquitetura de Software
 
+# 1º Bimestre
+
 ## 📅 04/08/25
 
 ### Abstração
@@ -138,4 +140,24 @@ Sender --> Receiver (Relação um para um)
 
 ### Twelve Factor App [Site](https://12factor.net/)
 A metodologia twelve-factor app define boas práticas para construir aplicações SaaS modernas, com foco em portabilidade, automação, agilidade, escalabilidade e facilidade de implantação na nuvem, independente da linguagem ou serviços utilizados.
+
+---
+
+2º Bimestre
+
+## 📅 29/09/25
+
+### [Circuit Breaker pattern](https://learn.microsoft.com/pt-br/azure/architecture/patterns/circuit-breaker?wt.mc_id=AZ-MVP-5003638)
+O Circuit Breaker é um padrão de design que visa proteger a comunicação entre sistemas, especialmente em arquiteturas distribuídas, onde chamadas remotas podem falhar ou demorar para responder. Ele ajuda a lidar com falhas transitórias e a evitar que sistemas dependentes fiquem sobrecarregados por tentativas repetidas de conexão com um serviço que está indisponível.
+
+O Circuit Breaker possui três estados principais:
+
+- Closed (Fechado)  
+No estado fechado, as requisições são encaminhadas normalmente para o serviço dependente. O Circuit Breaker monitora as falhas e, caso o número de erros ultrapasse um limite configurado, o estado muda para aberto.
+
+- Open (Aberto)  
+No estado aberto, as requisições são bloqueadas imediatamente, evitando chamadas ao serviço que está indisponível. Após um tempo de espera configurado (timeout), o Circuit Breaker muda para o estado meio aberto.
+
+- Half Open (Meio aberto)  
+Nesse estado, o Circuit Breaker permite que um número limitado de requisições teste se o serviço dependente já está saudável novamente. Se essas requisições forem bem-sucedidas, o Circuit Breaker volta ao estado fechado. Caso contrário, volta para aberto e reinicia o ciclo.
 

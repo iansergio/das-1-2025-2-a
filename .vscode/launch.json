@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Producer",
+            "request": "launch",
+            "mainClass": "br.univille.Producer",
+            "projectName": "events"
+        },
+        {
+            "type": "java",
             "name": "Subscriber",
             "request": "launch",
             "mainClass": "br.univille.Subscriber",

@@ -175,44 +175,72 @@ Envolvem capacidades como desempenho, escalabilidade, elasticidade, disponibilid
 
 | Termo | Definição |
 | :--- | :--- |
-| **Disponibilidade** | Por quanto tempo o sistema precisa ficar disponível (ex: 24/7). Requer etapas para permitir que o sistema fique ativo rapidamente no caso de qualquer falha. |
+| **Disponibilidade** | Tempo que o sistema deve ficar ativo. |
 | **Continuidade** | Capacidade de recuperação de desastres. |
-| **Desempenho** | Inclui teste de estresse, análise de pico, capacidade requerida e tempos de resposta. |
-| **Recuperabilidade** | Requisitos de continuidade do negócio. Define a rapidez com que o sistema precisa ficar online novamente após um desastre, afetando a estratégia de *backup* e hardware duplicado. |
-| **Confiabilidade / Segurança** | Avalia se o sistema precisa ser à prova de falhas ou se é de missão crítica (ex: afeta a vida das pessoas ou pode custar muito dinheiro à empresa em caso de falha). |
-| **Robustez** | A capacidade de lidar com condições de erro e limites durante a execução, como queda de conexão, falta de energia ou falha no hardware. |
-| **Escalabilidade** | A capacidade de o sistema rodar e operar de forma eficaz quando o número de usuários ou requisições aumenta. |
+| **Desempenho** | Velocidade, capacidade e resposta do sistema. |
+| **Recuperabilidade** | Rapidez para voltar ao ar após falhas. |
+| **Confiabilidade / Segurança** | Tolerância a falhas e importância crítica. |
+| **Robustez** | Resistência a erros e falhas externas. |
+| **Escalabilidade** | Capacidade de crescer conforme demanda. |
 
 ### Características Estruturais da Arquitetura
 Englobam desde qualidade do código, como boa modularidade, acoplamento controlado entre os componentes, código legível até muitas outras avaliações internas da qualidade.
 
 | Termo | Definição |
 | :--- | :--- |
-| **Configuração** | A facilidade com que os usuários finais podem mudar os aspectos de configuração do software, geralmente através de interfaces úteis. |
-| **Extensão** | A importância e a facilidade de ligar novas partes da funcionalidade ao sistema existente. |
-| **Instalabilidade** | A facilidade e rapidez com que o sistema pode ser instalado em todas as plataformas necessárias. |
-| **Aproveitamento / Reutilização** | A capacidade de reutilizar componentes comuns em vários produtos ou partes do sistema. |
-| **Localização** | Suporte a múltiplos idiomas (telas, dados, relatórios), requisitos de caracteres multibytes, e diferentes unidades de medidas ou moedas. |
-| **Manutenção** | Quão facilmente as alterações são aplicadas e o sistema é melhorado ou corrigido. |
-| **Portabilidade** | A necessidade de o sistema rodar em mais de uma plataforma ou em diferentes ambientes (ex: diferentes sistemas operacionais ou bancos de dados). |
-| **Suporte** | O nível de suporte técnico necessário e as facilidades de registro (*logging*) ou depuração requeridas para diagnosticar erros no sistema. |
-| **Atualização** | A capacidade de atualizar com facilidade e rapidez uma versão prévia da aplicação ou solução para uma versão mais nova, tanto nos servidores quanto nos clientes. |
+| **Configuração** | Facilidade de mudar ajustes pelo usuário. |
+| **Extensão** | Facilidade para adicionar novas funcionalidades. |
+| **Instalabilidade** | Facilidade de instalação em diferentes plataformas. |
+| **Aproveitamento / Reutilização** | Uso de componentes comuns em vários sistemas. |
+| **Localização** | Suporte a múltiplos idiomas e formatos regionais. |
+| **Manutenção** | Facilidade de aplicar alterações no sistema |
+| **Portabilidade** | Necessidade de um sistema rodar em mais de um tipo de dispositivo ou sistema operacional |
+| **Suporte** | Suporte técnico necessário e as facilidades de registro necessárias para diagnosticar erros no sistema. |
+| **Atualização** | A facilidade de atualizar uma versão prévia da aplicação ou solução para uma versão mais nova. |
 
 ### Características Transversais da Arquitetura
 Muitas características estão fora ou desafiam a categorização, formando importantes restrições de design e considerações, abaixo segue exemplos.
 
 | Termo | Definição |
 | :--- | :--- |
-| **Acessibilidade** | Garante o acesso a todos os usuários, incluindo aqueles com deficiências (ex: daltonismo, perda auditiva), através de *design* e recursos apropriados. |
-| **Armazenamento** | Define se os dados precisarão ser armazenados ou excluídos após um período de tempo, afetando estratégias de arquivamento e desativação de contas. |
-| **Autenticação** | Requisitos de segurança para assegurar que os usuários são quem afirmam ser (verificação de identidade). |
-| **Autorização** | Requisitos de segurança para garantir que os usuários possam acessar apenas certas funções ou áreas da aplicação, de acordo com seu perfil ou regras de negócio. |
-| **Legalidade** | Restrições legais e regulatórias sob as quais o sistema deve operar (ex: GDPR, proteção de dados), incluindo requisitos de direitos de reserva. |
-| **Privacidade** | A capacidade de ocultar transações de funcionários internos da empresa, muitas vezes exigindo que os dados sejam criptografados para impedir acesso não autorizado (mesmo por administradores de sistema). |
-| **Segurança** | Especifica a necessidade de criptografia de dados (no banco de dados ou em comunicação de rede) e os tipos de autenticação exigidos para o acesso. |
-| **Suporte** | O nível de suporte técnico necessário e as facilidades de registro (*logging*) ou depuração requeridas para diagnosticar erros no sistema. |
-| **Usabilidade / Viabilidade** | O nível de treinamento necessário para os usuários atingirem seus objetivos com a aplicação e a facilidade geral de uso. |
+| **Acessibilidade** | Garante o acesso a todos os usuários, incluindo aqueles com deficiências (ex: daltonismo, perda auditiva). |
+| **Armazenamento** | Define se os dados precisarão ser armazenados ou excluídos após um período de tempo. |
+| **Autenticação** | Assegurara que os usuários são quem afirmam ser (verificação de identidade). |
+| **Autorização** | Garantem que os usuários possam acessar apenas certas funções ou áreas da aplicação. |
+| **Legalidade** | Restrições legais e regulatórias sob as quais o sistema deve operar. |
+| **Privacidade** | Ocultamento de transações de funcionários internos da empresa. |
+| **Segurança** | Especifica a necessidade de criptografia de dados. |
+| **Suporte** | O nível de suporte técnico necessário e as facilidades de registro requeridas para diagnosticar erros no sistema. |
+| **Usabilidade / Viabilidade** | O nível de treinamento necessário para os usuários atingirem seus objetivos com a aplicação. |
 
 ### A Arquitetura menos pior
-
 A Arquitetura de Software é um exercício de trade-offs (compensações). É impossível maximizar todos os atributos de qualidade (ex: Segurança vs. Desempenho) simultaneamente, pois melhorar um quase sempre prejudica outro. O objetivo do arquiteto não é criar a "melhor arquitetura", mas sim a "arquitetura menos pior", ou seja, aquela que faz o melhor equilíbrio entre as características conflitantes para atender aos requisitos de negócio.
+
+## 📅 06/10/25
+
+### CQRS (Comand Query Responsability Sogregation)
+É um design pattern onde a ideia é dividir operações de leitura e escrita na persistencia da aplicação, principalmente em performance. Utilizando modelos separadas para cada tipo de operação como ler (read) e escrever (write) e, com esta abordagem permite que cada modelo seja otimizado apenas para a respectiva operação otimizando desempenho, escalabilidade e segurança. 
+
+Com o crecimento de uma aplicação se torna difícil de otimizar o crescimento vertical da mesma e com isso temos alguns desafios:
+- Data mismatch: A representação de leitura e escrita pode divergir. Alguns campos são obrigatórios durante uma operação
+- Lock orientation: Operações em paralelo no mesmo conjunto de dados pode causar um "lock" 
+- Problemas de performance: A abordagem tradicional pode ter um efeito negativo e causar problemas de desempenho
+- Desafios de segurança: Pode ser difícil de gerenciar quando as entidades estão sujeitas a ler e escrever operações 
+
+### Solução
+Usar o CQRS para separar as operações de leitura, de operações de escrita como consultas. Este padrão é útil em cenários onde é necessário uma separação clara entre comandos e leituras.
+
+### Modelos separados em uma única base de dados
+Nesta abordagem, tanto o modelo de leitura quanto o de escrita compartilham o mesmo banco de dados, mas possuem lógicas independentes para suas operações.
+
+#### Modelo de Escrita
+- Processa comandos que atualizam ou persistem dados.
+- Inclui validação e lógica de domínio para garantir a integridade e consistência.
+- Otimizado para suportar regras de negócio e operações transacionais.
+
+#### Modelo de Leitura
+- Atende consultas para recuperar dados de forma eficiente.
+- Gera DTOs (Data Transfer Objects) ou projeções adaptadas para a interface do usuário.
+- Evita lógica complexa de domínio para maximizar o desempenho das consultas.
+
+

@@ -143,7 +143,7 @@ A metodologia twelve-factor app define boas práticas para construir aplicaçõe
 
 ---
 
-2º Bimestre
+# 2º Bimestre
 
 ## 📅 29/09/25
 
@@ -161,3 +161,58 @@ No estado aberto, as requisições são bloqueadas imediatamente, evitando chama
 - Half Open (Meio aberto)  
 Nesse estado, o Circuit Breaker permite que um número limitado de requisições teste se o serviço dependente já está saudável novamente. Se essas requisições forem bem-sucedidas, o Circuit Breaker volta ao estado fechado. Caso contrário, volta para aberto e reinicia o ciclo.
 
+## 📅 06/10/25
+
+### Definições de características arquiteturais
+Basicamente, é o conjunto de qualidades e decisões de design que torna um software único e funcional. Uma característica da arquitetura atende a três critérios:
+
+- Especifica uma consideração de design fora do domínio
+- Influencia algum aspecto estrutural de design
+- É essencial ou importante para o sucesso da aplicação
+
+### Características Operacionais da Arquitetura
+Envolvem capacidades como desempenho, escalabilidade, elasticidade, disponibilidade e confiabilidade. 
+
+| Termo | Definição |
+| :--- | :--- |
+| **Disponibilidade** | Por quanto tempo o sistema precisa ficar disponível (ex: 24/7). Requer etapas para permitir que o sistema fique ativo rapidamente no caso de qualquer falha. |
+| **Continuidade** | Capacidade de recuperação de desastres. |
+| **Desempenho** | Inclui teste de estresse, análise de pico, capacidade requerida e tempos de resposta. |
+| **Recuperabilidade** | Requisitos de continuidade do negócio. Define a rapidez com que o sistema precisa ficar online novamente após um desastre, afetando a estratégia de *backup* e hardware duplicado. |
+| **Confiabilidade / Segurança** | Avalia se o sistema precisa ser à prova de falhas ou se é de missão crítica (ex: afeta a vida das pessoas ou pode custar muito dinheiro à empresa em caso de falha). |
+| **Robustez** | A capacidade de lidar com condições de erro e limites durante a execução, como queda de conexão, falta de energia ou falha no hardware. |
+| **Escalabilidade** | A capacidade de o sistema rodar e operar de forma eficaz quando o número de usuários ou requisições aumenta. |
+
+### Características Estruturais da Arquitetura
+Englobam desde qualidade do código, como boa modularidade, acoplamento controlado entre os componentes, código legível até muitas outras avaliações internas da qualidade.
+
+| Termo | Definição |
+| :--- | :--- |
+| **Configuração** | A facilidade com que os usuários finais podem mudar os aspectos de configuração do software, geralmente através de interfaces úteis. |
+| **Extensão** | A importância e a facilidade de ligar novas partes da funcionalidade ao sistema existente. |
+| **Instalabilidade** | A facilidade e rapidez com que o sistema pode ser instalado em todas as plataformas necessárias. |
+| **Aproveitamento / Reutilização** | A capacidade de reutilizar componentes comuns em vários produtos ou partes do sistema. |
+| **Localização** | Suporte a múltiplos idiomas (telas, dados, relatórios), requisitos de caracteres multibytes, e diferentes unidades de medidas ou moedas. |
+| **Manutenção** | Quão facilmente as alterações são aplicadas e o sistema é melhorado ou corrigido. |
+| **Portabilidade** | A necessidade de o sistema rodar em mais de uma plataforma ou em diferentes ambientes (ex: diferentes sistemas operacionais ou bancos de dados). |
+| **Suporte** | O nível de suporte técnico necessário e as facilidades de registro (*logging*) ou depuração requeridas para diagnosticar erros no sistema. |
+| **Atualização** | A capacidade de atualizar com facilidade e rapidez uma versão prévia da aplicação ou solução para uma versão mais nova, tanto nos servidores quanto nos clientes. |
+
+### Características Transversais da Arquitetura
+Muitas características estão fora ou desafiam a categorização, formando importantes restrições de design e considerações, abaixo segue exemplos.
+
+| Termo | Definição |
+| :--- | :--- |
+| **Acessibilidade** | Garante o acesso a todos os usuários, incluindo aqueles com deficiências (ex: daltonismo, perda auditiva), através de *design* e recursos apropriados. |
+| **Armazenamento** | Define se os dados precisarão ser armazenados ou excluídos após um período de tempo, afetando estratégias de arquivamento e desativação de contas. |
+| **Autenticação** | Requisitos de segurança para assegurar que os usuários são quem afirmam ser (verificação de identidade). |
+| **Autorização** | Requisitos de segurança para garantir que os usuários possam acessar apenas certas funções ou áreas da aplicação, de acordo com seu perfil ou regras de negócio. |
+| **Legalidade** | Restrições legais e regulatórias sob as quais o sistema deve operar (ex: GDPR, proteção de dados), incluindo requisitos de direitos de reserva. |
+| **Privacidade** | A capacidade de ocultar transações de funcionários internos da empresa, muitas vezes exigindo que os dados sejam criptografados para impedir acesso não autorizado (mesmo por administradores de sistema). |
+| **Segurança** | Especifica a necessidade de criptografia de dados (no banco de dados ou em comunicação de rede) e os tipos de autenticação exigidos para o acesso. |
+| **Suporte** | O nível de suporte técnico necessário e as facilidades de registro (*logging*) ou depuração requeridas para diagnosticar erros no sistema. |
+| **Usabilidade / Viabilidade** | O nível de treinamento necessário para os usuários atingirem seus objetivos com a aplicação e a facilidade geral de uso. |
+
+### A Arquitetura menos pior
+
+A Arquitetura de Software é um exercício de trade-offs (compensações). É impossível maximizar todos os atributos de qualidade (ex: Segurança vs. Desempenho) simultaneamente, pois melhorar um quase sempre prejudica outro. O objetivo do arquiteto não é criar a "melhor arquitetura", mas sim a "arquitetura menos pior", ou seja, aquela que faz o melhor equilíbrio entre as características conflitantes para atender aos requisitos de negócio.

@@ -227,10 +227,10 @@ Com o crecimento de uma aplicação se torna difícil de otimizar o crescimento 
 - Problemas de performance: A abordagem tradicional pode ter um efeito negativo e causar problemas de desempenho
 - Desafios de segurança: Pode ser difícil de gerenciar quando as entidades estão sujeitas a ler e escrever operações 
 
-### Solução
+#### Solução
 Usar o CQRS para separar as operações de leitura, de operações de escrita como consultas. Este padrão é útil em cenários onde é necessário uma separação clara entre comandos e leituras.
 
-### Modelos separados em uma única base de dados
+#### Modelos separados em uma única base de dados
 Nesta abordagem, tanto o modelo de leitura quanto o de escrita compartilham o mesmo banco de dados, mas possuem lógicas independentes para suas operações.
 
 #### Modelo de Escrita
@@ -245,6 +245,39 @@ Nesta abordagem, tanto o modelo de leitura quanto o de escrita compartilham o me
 
 ## 📅 13/10/25
 
-###Retry Pattern
+### Retry Pattern
+Permite que uma aplicação lide com falhas ao tentar conectar com um serviço ou uma rede, tentando renectar de uma forma suave. O que aumenta a estabilidade da aplicação.
+
+Aplicações na nuvem devem estar preparadas para falhas transitórias, que são comuns nesse ambiente. Essas falhas incluem:
+- Perda momentânea de conectividade de rede.
+- Indisponibilidade temporária de um serviço.
+- Timeouts que ocorrem quando um serviço está sobrecarregado.
+
+#### Estratégias de Repetição
+**Cancelar:** Se a falha claramente não for transitória (ex: credenciais inválidas), a operação deve ser cancelada imediatamente e um erro reportado. Não faz sentido tentar novamente.  
+
+**Tentar Novamente de Imediato:** Se a falha for rara ou incomum (ex: um pacote de rede corrompido), uma nova tentativa imediata pode ser a melhor abordagem.  
+
+**Tentar Novamente Após um Atraso:** Esta é a estratégia mais comum. Se a falha for causada por sobrecarga ou problemas de conectividade, é necessário dar um tempo para que o serviço se recupere.  
+
+O atraso entre as tentativas pode ser:
+- Incremental: Aumenta linearmente a cada nova tentativa (ex: 2s, 4s, 6s).
+- Exponencial (Exponential Backoff): O tempo de espera aumenta exponencialmente, o que é eficaz para evitar sobrecarregar um serviço que já está ocupado.
 
 ### Fundamentos dos Padrões de Arquitetura
+Os estilos de arquitetura, por vezes chamados de padrões de arquitetura, descrevem uma relação nomeada de componentes que cobrem várias características da arquitetura.
+
+**A Grande Bola de Lama**  
+Uma Grande Bola de Lama é uma confusão de código espaguete mal estruturado, desleixado e unido com fita adesiva e arame. Esses sistemas mostram sinais inequívocos de crescimento desregulado e reparos rápidos e repetidos.
+
+**Arquitetura Unitária**  
+Quando o software iniciou, havia apenas o computador e o software que rodava nele. Durante as várias épocas de evolução do hardware e do software, os dois iniciaram como uma entidade, então se dividiram conforme aumentava a necessidade de capacidades mais sofisticadas.
+
+**Cliente/Servidor**   
+Ele divide a funcionalidade técnica em duas partes lógicas: o front-end (Cliente) e o back-end (Servidor). Essa separação é a base para abordar a complexidade e a necessidade de particionamento dos sistemas de software.
+
+**Desktop + Servidor de Banco de Dados**  
+Dividia o sistema entre a aplicação Cliente (Desktop), que tratava da interface do usuário e da lógica de apresentação, e o Servidor de Banco de Dados, responsável pelo processamento de dados robusto e de alta complexidade. A comunicação entre eles era estabelecida por protocolos de rede padrão.
+
+**Navegador + Servidor Web**  
+Assim que o desenvolvimento web moderno chegou, a divisão comum tornou o navegador web conectado ao servidor web (que por sua vez conectava um servidor de banco de dados). A separação das responsabilidades lembrava a variante de desktop, mas com clientes ainda mais leves, como navegadores, permitindo uma distribuição mais ampla tanto dentro quanto fora dos firewalls. 

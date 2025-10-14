@@ -243,4 +243,8 @@ Nesta abordagem, tanto o modelo de leitura quanto o de escrita compartilham o me
 - Gera DTOs (Data Transfer Objects) ou projeções adaptadas para a interface do usuário.
 - Evita lógica complexa de domínio para maximizar o desempenho das consultas.
 
+## 📅 13/10/25
 
+###Retry Pattern
+
+### Fundamentos dos Padrões de Arquitetura

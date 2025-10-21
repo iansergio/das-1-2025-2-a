@@ -243,7 +243,7 @@ Nesta abordagem, tanto o modelo de leitura quanto o de escrita compartilham o me
 - Gera DTOs (Data Transfer Objects) ou projeções adaptadas para a interface do usuário.
 - Evita lógica complexa de domínio para maximizar o desempenho das consultas.
 
-## 📅 13/10/25
+## 📅 13/10/25 - 📅 14/10/25
 
 ### Retry Pattern
 Permite que uma aplicação lide com falhas ao tentar conectar com um serviço ou uma rede, tentando renectar de uma forma suave. O que aumenta a estabilidade da aplicação.
@@ -281,3 +281,29 @@ Dividia o sistema entre a aplicação Cliente (Desktop), que tratava da interfac
 
 **Navegador + Servidor Web**  
 Assim que o desenvolvimento web moderno chegou, a divisão comum tornou o navegador web conectado ao servidor web (que por sua vez conectava um servidor de banco de dados). A separação das responsabilidades lembrava a variante de desktop, mas com clientes ainda mais leves, como navegadores, permitindo uma distribuição mais ampla tanto dentro quanto fora dos firewalls. 
+
+## 📅 20/10/25
+
+### Estilo de Arquitetura em Camadas(N-Tier)
+A arquitetura em camadas é o estilo mais comum e tradicional para o desenvolvimento de aplicações. Sua popularidade se deve principalmente a:
+- Simplicidade e baixo custo.
+- Familiaridade entre os desenvolvedores.
+- Alinhamento com a estrutura organizacional das equipes (UI, backend, banco de dados), conforme a Lei de Conway.
+
+#### Características
+- Componentes são agrupados em camadas lógicas horizontais.
+- Cada camada tem uma função específica.
+- Camadas padrão:
+  - Apresentação: Interface do usuário (UI).
+  - Comercial: Regras de negócio.
+  - Persistência: Acesso aos dados.
+  - Banco de Dados: Armazenamento dos dados.
+  - A aplicação é dividida por função técnica, não por domínio de negócio. Algo que dificulta a realização de mudanças em funcionalidades específicas (ex: "cliente"), pois elas se espalham por todas as camadas.
+
+#### Camada aberta vs. fechada
+- Camada fechada: Uma requisição deve passar pela camada imediatamente abaixo, sem pular etapas. Isso cria isolamento, impedindo que mudanças em uma camada afetem as outras e tornando o sistema menos frágil.
+  
+- Camada aberta: Permite que uma requisição "pule" camadas. Isso oferece flexibilidade, mas aumenta o risco de criar um sistema fortemente acoplado e difícil de manter.
+
+#### Sinkhole
+Descreve uma situação em que as camadas, que deveriam adicionar valor e lógica a uma requisição, agem apenas como "atravessadoras", simplesmente passando a solicitação para a camada seguinte sem realizar nenhum processamento significativo.

@@ -2,24 +2,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Producer",
+            "name": "Main",
             "request": "launch",
-            "mainClass": "br.univille.Producer",
-            "projectName": "events"
-        },
-        {
-            "type": "java",
-            "name": "Subscriber",
-            "request": "launch",
-            "mainClass": "br.univille.Subscriber",
-            "projectName": "events"
-        },
-        {
-            "type": "java",
-            "name": "Publisher",
-            "request": "launch",
-            "mainClass": "br.univille.Publisher",
-            "projectName": "events"
+            "mainClass": "br.univille.Main",
+            "projectName": "pipeline",
+            "envFile": "${workspaceFolder}/.env"
         },
         {
             "type": "java",

@@ -282,7 +282,7 @@ Dividia o sistema entre a aplicação Cliente (Desktop), que tratava da interfac
 **Navegador + Servidor Web**  
 Assim que o desenvolvimento web moderno chegou, a divisão comum tornou o navegador web conectado ao servidor web (que por sua vez conectava um servidor de banco de dados). A separação das responsabilidades lembrava a variante de desktop, mas com clientes ainda mais leves, como navegadores, permitindo uma distribuição mais ampla tanto dentro quanto fora dos firewalls. 
 
-## 📅 20/10/25
+## 📅 20/10/25 - 📅 21/10/25
 
 ### Estilo de Arquitetura em Camadas(N-Tier)
 A arquitetura em camadas é o estilo mais comum e tradicional para o desenvolvimento de aplicações. Sua popularidade se deve principalmente a:
@@ -307,3 +307,37 @@ A arquitetura em camadas é o estilo mais comum e tradicional para o desenvolvim
 
 #### Sinkhole
 Descreve uma situação em que as camadas, que deveriam adicionar valor e lógica a uma requisição, agem apenas como "atravessadoras", simplesmente passando a solicitação para a camada seguinte sem realizar nenhum processamento significativo.
+
+## 📅 27/10/25 - 📅 28/10/25
+
+### Estilo de Arquitetura Pipeline
+A arquitetura Pipeline é um estilo fundamental que se baseia na divisão de funcionalidade em partes distintas, sendo o princípio inerente por trás dos shells de terminal Unix (como Bash) e tendo paralelos em linguagens funcionais e modelos como o MapReduce. Embora seja frequentemente associada a implementações de baixo nível, é robusta para aplicações de nível comercial.
+
+### Topologia e Componentes
+Consiste em Filtros (Filters) conectados por Canais (Pipes) em um fluxo unidirecional e ponto a ponto.
+
+- Filtros: São os componentes de processamento. Devem ser autônomos, independentes, geralmente sem estado e realizar apenas uma tarefa (responsabilidade única).
+- Canais: Formam o caminho de comunicação. São tipicamente unidirecionais e ponto a ponto, transportando payloads de dados (preferencialmente menores para otimizar o desempenho).
+
+Tipos de filtros:
+1. Produtor: O ponto de partida (origem), responsável por criar e emitir dados.
+2. Transformador: Recebe, executa uma modificação ou enriquecimento dos dados (análogo ao map).
+3. Verificador: Recebe, testa um ou mais critérios e opcionalmente emite uma saída, filtrando os dados (semelhante ao reduce ou filter).
+4. Consumidor: O ponto de término (destino), que persiste o resultado final (ex: em um banco de dados) ou o exibe.
+
+## 📅 03/11/25
+
+### Estilo de Arquitetura Microkernel
+O estilo de arquitetura Microkernel é um padrão consolidado, ideal para aplicações baseadas em produto (empacotadas para instalação no cliente) e também muito utilizado em software comercial personalizado. Ele é essencialmente uma estrutura monolítica simples, projetada para facilitar a extensão, adaptação e isolamento de funcionalidades.
+
+### Topologia e Componentes
+A arquitetura é composta por dois elementos principais:
+- **Sistema Central (Core System)**: Define a funcionalidade mínima necessária para o sistema operar e representa o "caminho feliz" ou fluxo de processamento geral. O Sistema Central é responsável por localizar e chamar os plug-ins apropriados. Ele isola a complexidade e a lógica de processamento altamente volátil, delegando-as aos plug-ins. Dependendo da complexidade, pode ser implementado como um monolítico modular ou uma arquitetura em camadas. O Sistema Central tipicamente gerencia um banco de dados compartilhado pela aplicação.
+
+- **Componentes de Plug-in**: São módulos autônomos e independentes que contêm processamento especializado, recursos adicionais e código personalizado. Seu principal objetivo é isolar o código volátil, facilitando a manutenção e a testabilidade. O ideal é que os plug-ins sejam independentes entre si e sejam gerenciados pelo Sistema Central através de um Registro que mapeia os plug-ins disponíveis e seus detalhes de acesso.
+
+### Comunicação e Implementação
+A comunicação entre o Sistema Central e os plug-ins é geralmente ponto a ponto (chamadas de método ou função), sendo implementada por meio de bibliotecas compartilhadas (JARs, DLLs), namespaces ou pacotes.
+Alternativamente, os plug-ins podem ser acessados remotamente via REST ou mensageria, sendo implementados como serviços independentes. Embora isso melhore o desacoplamento e a escalabilidade, transforma a arquitetura em distribuída (o que pode complicar a implantação em produtos locais de terceiros) e o quantum arquitetural permanece singular (1), pois todas as requisições ainda precisam passar pelo Sistema Central.
+
+**Contratos:** Os contratos entre os plug-ins e o Sistema Central (definindo comportamento e dados de entrada/saída) são cruciais e geralmente são padronizados. Adaptadores são usados para integrar plug-ins de terceiros com contratos personalizados.

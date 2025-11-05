@@ -308,7 +308,7 @@ A arquitetura em camadas é o estilo mais comum e tradicional para o desenvolvim
 #### Sinkhole
 Descreve uma situação em que as camadas, que deveriam adicionar valor e lógica a uma requisição, agem apenas como "atravessadoras", simplesmente passando a solicitação para a camada seguinte sem realizar nenhum processamento significativo.
 
-## 📅 27/10/25 - 📅 28/10/25
+## 📅 27/10/25
 
 ### Estilo de Arquitetura Pipeline
 A arquitetura Pipeline é um estilo fundamental que se baseia na divisão de funcionalidade em partes distintas, sendo o princípio inerente por trás dos shells de terminal Unix (como Bash) e tendo paralelos em linguagens funcionais e modelos como o MapReduce. Embora seja frequentemente associada a implementações de baixo nível, é robusta para aplicações de nível comercial.

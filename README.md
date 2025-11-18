@@ -325,7 +325,7 @@ Tipos de filtros:
 3. Verificador: Recebe, testa um ou mais critérios e opcionalmente emite uma saída, filtrando os dados (semelhante ao reduce ou filter).
 4. Consumidor: O ponto de término (destino), que persiste o resultado final (ex: em um banco de dados) ou o exibe.
 
-## 📅 03/11/25
+## 📅 03/11/25 
 
 ### Estilo de Arquitetura Microkernel
 O estilo de arquitetura Microkernel é um padrão consolidado, ideal para aplicações baseadas em produto (empacotadas para instalação no cliente) e também muito utilizado em software comercial personalizado. Ele é essencialmente uma estrutura monolítica simples, projetada para facilitar a extensão, adaptação e isolamento de funcionalidades.
@@ -341,3 +341,57 @@ A comunicação entre o Sistema Central e os plug-ins é geralmente ponto a pont
 Alternativamente, os plug-ins podem ser acessados remotamente via REST ou mensageria, sendo implementados como serviços independentes. Embora isso melhore o desacoplamento e a escalabilidade, transforma a arquitetura em distribuída (o que pode complicar a implantação em produtos locais de terceiros) e o quantum arquitetural permanece singular (1), pois todas as requisições ainda precisam passar pelo Sistema Central.
 
 **Contratos:** Os contratos entre os plug-ins e o Sistema Central (definindo comportamento e dados de entrada/saída) são cruciais e geralmente são padronizados. Adaptadores são usados para integrar plug-ins de terceiros com contratos personalizados.
+
+## 📅 10/11/25
+Microsserviços são um estilo arquitetural centrado em alto desacoplamento, domínios independentes e unidades pequenas de implementação, cada uma rodando em seu próprio processo. Eles derivam fortemente dos conceitos do DDD (Domain-Driven Design), especialmente o Contexto Delimitado (Bounded Context).
+
+- O termo “microsserviços” foi popularizado em 2014 por Martin Fowler e James Lewis.
+- Diferente de outros estilos, foi nomeado antes de se tornar amplamente usado.
+- Surgiu da observação de padrões modernos de desenvolvimento e da influência central do DDD.
+
+### Contexto Delimitado
+- Cada serviço representa um domínio ou fluxo de trabalho, contendo todo o necessário para operar:
+- Código
+- Banco de dados
+- Dependências internas
+Isso reduz acoplamento e favorece duplicação quando necessário.
+
+### Desacoplamento > Reutilização
+1. Reutilizar aumenta acoplamento.
+2. Microsserviços preferem duplicação para manter autonomia.
+
+### Topologia e Distribuição
+Cada serviço roda em seu próprio processo (VM, container etc.).   
+Isso melhora isolamento e escalabilidade, mas reduz performance devido às chamadas de rede.   
+A granularidade correta é fundamental — serviços pequenos demais criam excesso de comunicação.   
+
+### Granularidade
+A definição dos limites de serviços deve considerar:
+- Finalidade (cada serviço faz algo coeso)
+- Transações (evitar transações distribuídas)
+- Coreografia (não exigir comunicação exagerada)
+Granularidade exige iteração: dificilmente fica correta na primeira tentativa.
+
+### Isolamento dos Dados
+Cada microsserviço deve ter seu banco dedicado, evitando esquemas compartilhados.
+Consequências:
+
+1. Não existe mais uma “única fonte de verdade” global.
+2. Pode exigir replicação, cache ou coordenação entre domínios.
+3. Permite liberdade para escolher tecnologias diferentes por serviço.
+
+### Comunicação
+Os serviços podem se comunicar de forma:
+
+#### Síncrona
+- REST
+- gRPC
+Menos tolerante a falhas.
+
+#### Assíncrona
+- Eventos
+- Mensagens
+Maior desacoplamento e resiliência.
+O ecossistema é heterogêneo: diferentes serviços podem usar linguagens e tecnologias distintas.   
+
+Em geral, microsserviços trazem grande flexibilidade, escalabilidade e rapidez evolutiva, mas ao custo de maior complexidade operacional. Funcionam muito bem quando o domínio exige desacoplamento, autonomia de equipes e alta taxa de mudanças, mas podem ser desnecessários ou problemáticos para sistemas simples ou altamente interdependentes.
